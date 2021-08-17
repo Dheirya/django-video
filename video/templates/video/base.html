@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+    <style>
+      @keyframes page-load {
+          from {
+              background-color: #ffc422;
+          }
+          to {
+              background-color: #c0392b;
+          }
+      }
+      .page-loading::before {
+          content:" ";
+          display:block;
+          position:fixed;
+          z-index:10;
+          height:2px;
+          width:100%;
+          top:0;
+          left:0;
+          background-color:#06D;
+          animation: page-load infinite ease-out 2s;
+          box-shadow:0 2px 2px rgba(0,0,0,.2);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div class="header__left">
+        <i id="menu" class="material-icons noselect">menu</i>
+        <a href="{% url 'home' %}">
+          <img
+            src="https://res.cloudinary.com/dpoer5oaq/image/upload/v1626731920/Screen_Shot_2021-07-19_at_5.57.42_PM_axn0l1.png"
+            alt=""
+          />
+        </a>
+      </div>
+      <div class="header__icons dropdown">
+        <i onclick="acco()" class="material-icons md-48 dropbtn noselect">account_circle</i>
+        <div id="myDropdown" class="dropdown-content">
+          <a href="#">Edit Profile</a>
+          <a href="#">Upload Video</a>
+          <a href="#">Login</a>
+          <a href="#">Register</a>
+        </div>
+      </div>
+    </div>
+    <div class="mainBody">
+      <div class="sidebar" style="display:none">
+        <div class="sidebar__categories">
+          <div class="sidebar__category">
+            <i class="material-icons md-30">home</i>
+            <span>Home</span>
+          </div>
+          <div class="sidebar__category">
+            <i class="material-icons md-30">info</i>
+            <span>About</span>
+          </div>
+          <div class="sidebar__category">
+            <i class="material-icons md-30">account_circle</i>
+            <span>Profile</span>
+          </div>
+        </div>
+        <hr/>
+        <div class="sidebar__category">
+            <i class="material-icons md-30">edit</i>
+            <span>Edit Profile</span>
+          </div>
+        <div class="sidebar__category">
+            <i class="material-icons md-30">file_upload</i>
+            <span>Upload</span>
+          </div>
+      </div>
+      {% block content %}{% endblock content %}
+    </div>
+    <script async src="{% static 'index.js' %}"></script>
+  </body>
+</html>

@@ -1,0 +1,112 @@
+{% extends "video/base.html" %}
+{% block content %}
+    <title>Surfing ~ DjangoTube</title>
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.8/plyr.css" />
+    <style>
+        .plyr--full-ui input[type=range] {
+          color: red;
+        }
+
+        .plyr__control--overlaid {
+          background: red;
+        }
+
+        .plyr--video .plyr__control.plyr__tab-focus,
+        .plyr--video .plyr__control:hover,
+        .plyr--video .plyr__control[aria-expanded=true] {
+          background: red;
+        }
+
+        .plyr__control.plyr__tab-focus {
+          box-shadow: 0 0 0 5px red;
+        }
+
+        .plyr__menu__container .plyr__control[role=menuitemradio][aria-checked=true]::before {
+          background: red;
+        }
+    </style>
+    <div class="videos grid">
+        <div class="grid-container videop">
+            <video id="player" autoplay controls src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4"></video>
+            <h2>Surfing</h2><br/>
+            <div class="meta">
+                <p class="bottom__st">42,303 views · Jul 18, 2021</p>
+                <div class="action">
+                    <a href="{% url 'user' %}"><i class="material-icons like md-22">thumb_up</i></a> <span style="color: {% url 'user' %}343a40;font-size:24px">5.8K</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{% url 'user' %}"><i class="material-icons dislike md-22">thumb_down</i></a> <span style="color: {% url 'user' %}343a40;font-size:24px">1.1K</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{% url 'user' %}"><i class="material-icons blue">share</i></a>
+                </div>
+            </div>
+            <hr class="mt10"/>
+            <div class="video__details">
+              <div class="author">
+                <a href="{% url 'user' %}"><img src="http://aninex.com/images/srvc/web_de_icon.png" alt="" /></a>
+              </div>
+              <div class="title">
+                <h3>
+                  <a href="{% url 'user' %}">FutureCoders</a>
+                </h3>
+                <p>Surfing is cool! Watch my surfing video today!</p>
+              </div>
+            </div>
+            <hr class="mt10"/>
+        </div><br/>
+        <div class="grid-container videos__container">
+          <div class="video">
+            <div class="video__thumbnail">
+              <a href="{% url 'video' %}"><img src="https://img.youtube.com/vi/PpXUTUXU7Qc/maxresdefault.jpg" alt="" /></a>
+            </div>
+            <div class="video__details">
+              <div class="author">
+                <a href="{% url 'user' %}"><img src="http://aninex.com/images/srvc/web_de_icon.png" alt="" /></a>
+              </div>
+              <div class="title">
+                <h3>
+                  <a href="{% url 'video' %}">Top 5 Programming Languages to Learn in 2021 | Best Programming Languages to Learn</a>
+                </h3>
+                <a href="{% url 'user' %}">FutureCoders</a>
+                <a href="{% url 'user' %}"><span>10M Views • 3 Months Ago</span></a>
+              </div>
+            </div>
+          </div>
+            <div class="video">
+            <div class="video__thumbnail">
+              <a href="{% url 'video' %}"><img src="https://img.youtube.com/vi/PpXUTUXU7Qc/maxresdefault.jpg" alt="" /></a>
+            </div>
+            <div class="video__details">
+              <div class="author">
+                <a href="{% url 'user' %}"><img src="http://aninex.com/images/srvc/web_de_icon.png" alt="" /></a>
+              </div>
+              <div class="title">
+                <h3>
+                  <a href="{% url 'video' %}">Top 5 Programming Languages to Learn in 2021 | Best Programming Languages to Learn</a>
+                </h3>
+                <a href="{% url 'user' %}">FutureCoders</a>
+                <a href="{% url 'user' %}"><span>10M Views • 3 Months Ago</span></a>
+              </div>
+            </div>
+          </div>
+            <div class="video">
+            <div class="video__thumbnail">
+              <a href="{% url 'video' %}"><img src="https://img.youtube.com/vi/PpXUTUXU7Qc/maxresdefault.jpg" alt="" /></a>
+            </div>
+            <div class="video__details">
+              <div class="author">
+                <a href="{% url 'user' %}"><img src="http://aninex.com/images/srvc/web_de_icon.png" alt="" /></a>
+              </div>
+              <div class="title">
+                <h3>
+                  <a href="{% url 'video' %}">Top 5 Programming Languages to Learn in 2021 | Best Programming Languages to Learn</a>
+                </h3>
+                <a href="{% url 'user' %}">FutureCoders</a>
+                <a href="{% url 'user' %}"><span>10M Views • 3 Months Ago</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <script src="https://cdn.plyr.io/3.6.8/plyr.js"></script>
+    <script>
+      const player = new Plyr('{% url 'user' %}player');
+    </script>
+{% endblock content %}
